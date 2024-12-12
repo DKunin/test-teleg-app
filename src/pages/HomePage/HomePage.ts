@@ -11,10 +11,8 @@ export class HomePage {
   private readonly page: Page;
 
   constructor(context: AppContext) {
-    this.page = new Page({ title: 'Home Page' }).appendChild(
-      $('<p/>').text(
-        'This page is a home page in this boilerplate. You can use the links below to visit other pages with their own functionality.',
-      ),
+    this.page = new Page({ title: '' }).appendChild(
+      $('<a href="https://senseai.ispring.ru/">Войти</a>'),
       $('<ul class="index-page__links"/>').append(
         ...routes.reduce<JQuery<HTMLLIElement>[]>((acc, r) => {
           if (r.title) {

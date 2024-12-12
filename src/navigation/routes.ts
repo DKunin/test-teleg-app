@@ -20,13 +20,5 @@ export const routes: {
   icon?: string;
 }[] = [
   { pathname: '/', Page: HomePage },
-  { pathname: '/init-data', Page: InitDataPage, title: 'Init Data' },
-  { pathname: '/theme-params', Page: ThemeParamsPage, title: 'Theme Params' },
-  { pathname: '/launch-params', Page: LaunchParamsPage, title: 'Launch Params' },
-  {
-    pathname: '/ton-connect',
-    Page: TonConnectPage,
-    title: 'TON Connect',
-    icon: `${import.meta.env.BASE_URL}/ton.svg`,
-  },
+  { pathname: '/init-data', Page: InitDataPage, title: 'Init Data' }
 ];
