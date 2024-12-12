@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-// import basicSsl from '@vitejs/plugin-basic-ssl';
+import fs from 'fs'
+import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export default defineConfig({
   base: '/typescript-template',
@@ -10,15 +11,22 @@ export default defineConfig({
     tsconfigPaths(),
     // Allows using self-signed certificates to run the dev server using HTTPS.
     // https://www.npmjs.com/package/@vitejs/plugin-basic-ssl
-    // basicSsl(),
+    basicSsl(),
   ],
   build: {
     target: 'esnext',
   },
   publicDir: './public',
   server: {
-    // Uncomment this line if you want to expose your dev server and access it from the devices
-    // in the same network.
-    // host: true,
+    port: 443,
+    host: "0.0.0.0",
+    hmr: {
+        host: 'tg-mini-app.local',
+        port: 443,
+    },
+    https: {
+      key: fs.readFileSync('./.cert/ca.key'),
+      cert: fs.readFileSync('./.cert/ca.crt'),
+    },
   },
 });
