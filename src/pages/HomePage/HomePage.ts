@@ -12,7 +12,7 @@ export class HomePage {
 
   constructor(context: AppContext) {
     this.page = new Page({ title: '' }).appendChild(
-      $('<a href="https://senseai.ispring.ru/">Войти</a>'),
+      $('<a href="http://185.251.90.61:3939/learnAuth?login=true">Войти</a>'),
       $('<ul class="index-page__links"/>').append(
         ...routes.reduce<JQuery<HTMLLIElement>[]>((acc, r) => {
           if (r.title) {
