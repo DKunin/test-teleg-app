@@ -4,7 +4,7 @@ import fs from 'fs'
 import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export default defineConfig({
-  base: '/typescript-template',
+  base: '/test-teleg-app',
   plugins: [
     // Allows using the compilerOptions.paths property in tsconfig.json.
     // https://www.npmjs.com/package/vite-tsconfig-paths
