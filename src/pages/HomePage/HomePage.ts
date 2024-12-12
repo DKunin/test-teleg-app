@@ -1,37 +1,23 @@
-import $ from 'jquery';
+import $ from "jquery";
 
-import { Page } from '@/components/Page/Page';
-import { Link } from '@/components/Link/Link';
-import { routes } from '@/navigation/routes';
-import type { AppContext } from '@/context/types';
+import { Page } from "@/components/Page/Page";
+import type { AppContext } from "@/context/types";
 
-import './styles.css';
-
+import "./styles.css";
 export class HomePage {
   private readonly page: Page;
 
   constructor(context: AppContext) {
-    this.page = new Page({ title: '' }).appendChild(
-      $('<a href="http://185.251.90.61:3939/learnAuth?login=true">Войти</a>'),
-      $('<ul class="index-page__links"/>').append(
-        ...routes.reduce<JQuery<HTMLLIElement>[]>((acc, r) => {
-          if (r.title) {
-            acc.push(
-              $<HTMLLIElement>('<li class="index-page__link-item"/>').append(
-                new Link({ class: 'index-page__link', href: r.pathname }, context)
-                  .appendChild(
-                    r.icon && $('<i class="index-page__link-icon"/>').append(
-                      $('<img/>').attr('src', r.icon),
-                    ),
-                    r.title,
-                  )
-                  .element(),
-              ),
-            );
-          }
-          return acc;
-        }, []),
-      ),
+    const { launchParams: lp } = context;
+    console.log(lp.initData?.user);
+    this.page = new Page({ title: "" }).appendChild(
+      $("<h2 >Добро пожаловать, " + lp.initData?.user?.username + "</h2>"),
+      lp.initData?.user?.photoUrl
+        ? $(`<img src="${lp.initData?.user?.photoUrl}"/>`)
+        : "",
+      $(
+        '<a class="button-link centered-button" href="http://185.251.90.61:3939/learnAuth?login=true">Войти</a>'
+      )
     );
   }
 
