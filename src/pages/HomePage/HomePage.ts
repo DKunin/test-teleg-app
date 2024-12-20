@@ -15,7 +15,7 @@ export class HomePage {
         ? $(`<img class="round-avatar" src="${lp.initData?.user?.photoUrl}" />`)
         : "",
       $(
-        '<a class="button-link centered-button" href="http://185.251.90.61:3939/learnAuth?login=true">Войти</a>'
+        '<a class="button-link centered-button" href="http://185.251.90.61:3939/learnAuth?login='+lp.initData.id+'">Войти</a>'
       )
     );
   }
