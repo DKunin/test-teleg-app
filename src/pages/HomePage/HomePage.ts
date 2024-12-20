@@ -9,13 +9,14 @@ export class HomePage {
 
   constructor(context: AppContext) {
     const { launchParams: lp } = context;
+    console.log(lp.initData)
     this.page = new Page({ title: "" }).appendChild(
       $("<h2 >Добро пожаловать, " + lp.initData?.user?.username + "</h2>"),
       lp.initData?.user?.photoUrl
         ? $(`<img class="round-avatar" src="${lp.initData?.user?.photoUrl}" />`)
         : "",
       $(
-        '<a class="button-link centered-button" href="http://185.251.90.61:3939/learnAuth?login='+lp.initData.id+'">Войти</a>'
+        '<a class="button-link centered-button" href="http://185.251.90.61:3939/learnAuth?login='+lp.initData?.user?.id+'">Войти</a>'
       )
     );
   }
