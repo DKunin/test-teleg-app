@@ -16,8 +16,8 @@ export class HomePage {
         ? $(`<img class="round-avatar" src="${lp.initData?.user?.photoUrl}" />`)
         : "",
       $(
-        '<a class="button-link centered-button" href="http://185.251.90.61:3939/learnAuth?login='+lp.initData?.user?.id+'">Войти</a>'
-        //'<a class="button-link centered-button" href="https://staging-bot.senseai.pro/api/learnAuth?login='+lp.initData?.user?.id+'">Войти</a>'
+        '<a class="button-link centered-button" href="http://185.251.90.61:3939/learnAuth?login='+lp.initData?.user?.id+'">Войти Local</a>',
+        '<a class="button-link centered-button" href="https://staging-bot.senseai.pro/api/learnAuth?login='+lp.initData?.user?.id+'">Войти Staging</a>'
       )
     );
   }
