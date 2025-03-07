@@ -9,7 +9,7 @@ export class HomePage {
 
   constructor(context: AppContext) {
     const { launchParams: lp } = context;
-    const link = `https://staging-bot.senseai.pro/api/learnAuth?login=${lp.initData?.user?.id}`
+    const link = `https://bot.senseai.pro/api/learnAuth?login=${lp.initData?.user?.id}`
     window.location.href = link
     this.page = new Page({ title: "" }).appendChild(
       $("<div class='loader-container'><div class='loader'></div></div>")
